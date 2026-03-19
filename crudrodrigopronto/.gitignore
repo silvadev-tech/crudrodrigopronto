@@ -1,0 +1,25 @@
+# Arquivos e pastas da IDE
+.idea/
+*.iml
+
+# Arquivos de build do Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Logs
+*.log
+
+# Arquivos temporários do sistema
+*.class
+*.swp
+*.swo
+*.tmp
+*.bak
+
+# Configurações locais
+*.DS_Store
+Thumbs.db
+
+# Arquivos de cache
+.cache/
+
