@@ -1,11 +1,11 @@
 package com.crudrodrigopronto.crudrodrigopronto.service;
 
 
+import com.crudrodrigopronto.crudrodrigopronto.exception.ProdutoNaoEcontradoException;
 import com.crudrodrigopronto.crudrodrigopronto.model.Produto;
 import com.crudrodrigopronto.crudrodrigopronto.repository.ProdutoRepository;
 import org.springframework.stereotype.Service;
 
-import java.nio.channels.FileChannel;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,7 +23,8 @@ public class ProdutoService {
     }
 
     public Optional<Produto> buscarPorId(Long id) {
-        return produtoRepository.findById(id);
+        return Optional.of(produtoRepository.findById(id)
+                .orElseThrow(() -> new ProdutoNaoEcontradoException("Produto não encontrado")));
     }
 
     public Produto salvarProduto(Produto produto) {
@@ -35,13 +36,11 @@ public class ProdutoService {
     }
 
     public Optional<Produto> atualizarProduto(Long id, Produto produtoAtualizado) {
-        return listarProdutos().stream()
-                .filter(p -> p.getId().equals(id))
-                .findFirst()
+        return produtoRepository.findById(id)
                 .map(p -> {
                     p.setNome(produtoAtualizado.getNome());
                     p.setPreco(produtoAtualizado.getPreco());
-                    return p;
+                    return produtoRepository.save(p); // 🔥 salva no banco
                 });
     }
 }
