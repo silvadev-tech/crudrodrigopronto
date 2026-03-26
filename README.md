@@ -2,8 +2,9 @@
 
 ## 📌 Descrição breve
 Projeto CRUD desenvolvido em Java para praticar conceitos de backend e versionamento com Git/GitHub.
-foi empregado todas as boas praticas de Eng.de Software como clean code e Arquitetura com separação de responsabilidades.
-código agora refatorado agora com exception e com update funcionando....
+foram empregadas boas praticas de Eng.de Software como clean code e Arquitetura com separação de responsabilidades.
+O projeto foi evoluído e refatorado
+incluindo tratamento global de exceções e operações completas atualização  funcionando....
 
 ## 🛠️ Tecnologias usadas
 - Java
@@ -11,6 +12,7 @@ código agora refatorado agora com exception e com update funcionando....
 - Maven
 - Git/GitHub
 - Postman
+- PostgreSQL 
 - pgAdmin 4
 
 ## 🚀 Como rodar o projeto
